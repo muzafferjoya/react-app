@@ -42,7 +42,7 @@ pipeline {
 stage('Production') {
   steps {
     withAWS(region:'us-east-1',credentials:'aws-id') {
-    s3Upload(bucket: 'muzaffar-khan', workingDir:'dist', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
+    s3Upload(bucket: 'muzaffar-khan', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
           }
         }
