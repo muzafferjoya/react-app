@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Checkout External Project'){
       steps{
-      git branch: 'master',
+      git branch: 'staging',
       credentialsId: 'bitbucket-login',
       url: 'git@bitbucket.org:muzaffarjoya/react-app-jenkins.git'
       sh "ls -lat"
@@ -31,20 +31,9 @@ pipeline {
             sh 'npm run test'
           }
         }
-        stage('Create Build Artifacts') {
-          steps {
-            sh 'npm run build'
-          }
-        }
+       
       }
     }
 
-stage('Production') {
-  steps {
-    withAWS(region:'us-east-1',credentials:'aws-id') {
-    s3Upload(bucket: 'muzaffar-khan', workingDir:'dist', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
-            }
-          }
-        }
     }
 }
