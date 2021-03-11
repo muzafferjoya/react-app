@@ -9,13 +9,6 @@ function App() {
         <p>
 
           Edit <code>src/App.js</code> and save to reload deploy on S3
-<<<<<<< HEAD
-      
-=======
-
-          
-
->>>>>>> e42f9341843336856a6a891f669c27596c127471
         </p>
         <a
           className="App-link"
