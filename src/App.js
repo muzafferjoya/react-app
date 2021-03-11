@@ -7,7 +7,11 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
+<<<<<<< HEAD
           Edit <code>src/App.js</code> and save to reload deploy on S3
+=======
+          Edit <code>src/App.js</code> and save to reload and deploy.
+>>>>>>> f832f1deb0dfebf1f68cb5af80b3155c4a5e1cb0
         </p>
         <a
           className="App-link"
