@@ -16,7 +16,6 @@ pipeline {
       git branch: 'master',
       credentialsId: 'bitbucket-login',
       url: 'git@bitbucket.org:muzaffarjoya/react-app-jenkins.git'
-      sh "ls -lat"
     }
   }
     stage('Install Packages') {
@@ -42,6 +41,7 @@ pipeline {
 stage('Production') {
   steps {
     withAWS(region:'us-east-1',credentials:'aws-id') {
+    s3Delete(bucket: 'muzaffar-khan', path:'**/*');
     s3Upload(bucket: 'muzaffar-khan', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
           }
