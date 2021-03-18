@@ -14,7 +14,7 @@ pipeline {
     stage('Checkout External Project'){
       steps{
       git branch: 'master',
-      credentialsId: 'bitbucket-login',
+      credentialsId: 'bitbucket-muzaffar',
       url: 'git@bitbucket.org:muzaffarjoya/react-app-jenkins.git'
     }
   }
