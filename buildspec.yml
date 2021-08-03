@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo "Installing Dependencies..."
+      - npm install
+  build:
+    commands:
+      - echo "Building Project..."
+      - npm run build
+  post_build:
+    commands:
+      - echo "Updating files in the S3 bucket..."
+      - aws s3 sync build/**  s3://mk-source-code/afterbuild/
