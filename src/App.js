@@ -10,6 +10,9 @@ function App() {
 
           Edit <code>src/App.js</code> and save to reload deploy on S3
         </p>
+        
+        <p><Welcome></p>
+        
         <a
           className="App-link"
           href="https://reactjs.org"
