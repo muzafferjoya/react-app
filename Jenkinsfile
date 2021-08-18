@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
      image 'node:14.16.0'
-     args '-p 3000:3001'
+     args '-p 8081:8081'
     }
   }
   environment {
@@ -21,6 +21,7 @@ pipeline {
     stage('Install Packages') {
       steps {
         sh 'npm install'
+        
       }
     }
     stage('Test and Build') {
@@ -38,15 +39,28 @@ pipeline {
       }
     }
 
-stage('Production') {
+stage('Deployment on S3 Bucket') {
   steps {
-    withAWS(region:'us-east-1',credentials:'muzaffar-aws-id') {
-    s3Delete(bucket: 'muzaffar-khan/develop', path:'**/*');
+    withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
     s3Upload(bucket: 'muzaffar-khan/develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
           }
         }
        
       }
+      post {
+
+         failure {
+            emailext attachLog: true,
+             body: '''${SCRIPT, template="groovy-html.template"}''', 
+             subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
+             mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: "muzafferjoya@gmail.com"
+          }
+         success {
+            emailext attachLog: true,
+             body: '''${SCRIPT, template="groovy-html.template"}''', 
+             subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
+             mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: "muzafferjoya@gmail.com"
+          }     
     }
-    
+    }
