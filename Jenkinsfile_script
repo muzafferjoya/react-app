@@ -2,8 +2,8 @@ pipeline {
   agent any
   
   parameters {
-  string defaultValue: 'codefrom-jenkins-c3', description: 'Amazon S3 Bucket Name', name: 'BUCKET'
-  string defaultValue: 'beforebuild-c3', description: 'Amazon S3 Bucket Application Directory', name: 'FOLDER'
+  string defaultValue: 'build-code-a1', description: 'Amazon S3 Bucket Name', name: 'BUCKET'
+  string defaultValue: 'client-xyz', description: 'Amazon S3 Bucket Application Directory', name: 'FOLDER'
   string defaultValue: 'ap-south-1', description: 'Amazon S3 Bucket Region', name: 'REGION'
   string defaultValue: 'build/', description: 'Amazon S3 Bucket Build Directory', name: 'BUILD'
   string defaultValue: 'index.html', description: 'Application Index File', name: 'INDEX'
@@ -13,7 +13,7 @@ pipeline {
   stages{
       stage('clone from s3') {
           steps{
-              sh 'aws s3 sync s3://codefrom-bitbucket-c1/staging-jenkins/ .'
+              sh 'aws s3 sync s3://mob-source/react-app-jenkins/ .'
               sh 'npm install'
               sh 'npm run build'
           }
