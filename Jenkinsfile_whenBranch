@@ -38,7 +38,7 @@ pipeline {
             branch 'develop'
           }
           steps {
-    withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
+    withAWS(region:'ap-south-1',credentials:'kashif-aws-id') {
     s3Upload(bucket: 'muzaffar-khan/develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
           }
@@ -48,7 +48,7 @@ pipeline {
             branch 'staging'
           }
           steps {
-    withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
+    withAWS(region:'ap-south-1',credentials:'kashif-aws-id') {
     s3Upload(bucket: 'muzaffar-khan/staging', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
           }
