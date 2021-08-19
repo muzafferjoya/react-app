@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    options {
+        skipDefaultCheckout()
+    }
+    stages {
+        stage('Example') {
+            steps {
+               cleanWs() 
+
+                // Checkout the repository
+                checkout scm 
+
+                
+            }
+        }
+    }
+}
