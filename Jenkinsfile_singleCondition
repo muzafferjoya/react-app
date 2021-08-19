@@ -8,8 +8,10 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
-                branch 'refs/remotes/origin/develop'
-            }
+              anyOf {
+                branch 'develop'
+          }
+        }
             steps {
                 echo 'Develop Works!'
             }
