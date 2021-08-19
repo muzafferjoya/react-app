@@ -1,11 +1,7 @@
 pipeline {
   agent any  
   stages {
-    stage('Git Cloning'){
-      steps {
-        git 'https://github.com/muzafferjoya/react-app-jenkins.git'
-      }
-    }
+    
     stage('Install Packages') {
       steps {
         sh 'npm install'
