@@ -1,8 +1,8 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('branch develop') {
-      agent { label 'master' }
+      
       when { 
         beforeAgent true
         branch 'develop'
@@ -12,7 +12,7 @@ pipeline {
       }
     }
     stage('branch not develop') {
-      agent { label 'another_label' }
+      
       when {
         beforeAgent true 
         not { branch 'develop' }
