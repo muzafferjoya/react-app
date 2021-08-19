@@ -1,21 +1,25 @@
 pipeline {
-    agent any
-    stages {
-        stage('Example Build') {
-            steps {
-                echo 'Hello Develop'
-            }
-        }
-        stage('Example Deploy') {
-            when {
-            beforeAgent true
-              anyOf {
-                branch "develop"
-          }
-        }
-            steps {
-                echo 'Develop Works!'
-            }
-        }
+  agent none
+  stages {
+    stage('branch develop') {
+      agent { label 'master' }
+      when { 
+        beforeAgent true
+        branch 'develop'
+      }
+      steps {
+        echo 'run build on master node for branch develop'
+      }
     }
+    stage('branch not develop') {
+      agent { label 'another_label' }
+      when {
+        beforeAgent true 
+        not { branch 'develop' }
+      }
+      steps {
+        echo 'run build on other nodes for not develop branch'
+      }
+    }
+  }
 }
