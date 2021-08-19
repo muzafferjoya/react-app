@@ -8,8 +8,9 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
+            beforeAgent true
               anyOf {
-                branch 'develop'
+                branch "develop"
           }
         }
             steps {
