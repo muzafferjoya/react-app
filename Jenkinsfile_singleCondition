@@ -8,8 +8,11 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
-                branch '*/develop'
-            }
+              branch 'develop'
+              beforeOptions true
+              beforeAgent true
+}
+
             steps {
                 echo 'Develop Works!'
             }
