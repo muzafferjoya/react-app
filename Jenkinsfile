@@ -11,13 +11,7 @@ pipeline {
     npm_config_cache = 'npm-cache'
   }
   stages {
-    stage('Checkout External Project'){
-      steps{
-      git branch: 'develop',
-      credentialsId: 'bitbucket-muzaffar',
-      url: 'git@bitbucket.org:muzaffarjoya/react-app-jenkins.git'
-    }
-  }
+    
     stage('Install Packages') {
       steps {
         sh 'npm install'
