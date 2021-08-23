@@ -42,7 +42,7 @@ pipeline {
 stage('Deployment on S3 Bucket') {
   steps {
     withAWS(region:'ap-south-1',credentials:'kashif-aws-id') {
-    s3Upload(bucket: 'muzaffar.tk/develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
+    s3Upload(bucket: 'mul-code/develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
           }
         }
