@@ -54,13 +54,13 @@ stage('Deployment on S3 Bucket') {
             emailext attachLog: true,
              body: '''${SCRIPT, template="groovy-html.template"}''', 
              subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
-             mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: "muzafferjoya@gmail.com", cc: "muzaffar.khan@eroam.com"
+             mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: "muzafferjoya@gmail.com"
           }
          success {
             emailext attachLog: true,
              body: '''${SCRIPT, template="groovy-html.template"}''', 
              subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
-             mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: "muzafferjoya@gmail.com", cc: "muzaffar.khan@eroam.com"
+             mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: "muzafferjoya@gmail.com"
           }     
     }
     }
