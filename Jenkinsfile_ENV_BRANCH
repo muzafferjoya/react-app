@@ -4,13 +4,6 @@ pipeline{
     }
     agent any
     stages{
-        stage('Checkout SCM'){
-            steps{
-                git branch: 'develop',
-                credentialsId: 'muzaffar-bitbucket',
-                url: 'git@bitbucket.org:muzaffarjoya/react-app-jenkins.git'
-            }
-        }
         stage('Build Container'){
             steps{
                 echo 'Building container...'
