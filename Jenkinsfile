@@ -59,7 +59,7 @@ stage('Deployment on S3 Bucket') {
          success {
             emailext attachLog: true,
              body: '''${SCRIPT, template="groovy-html.template"}''', 
-             subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
+             subject: "${env.JOB_NAME} - Branch Name # ${env.BRANCH_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
              mimeType: 'text/html',from: "muzafferjoya@gmail.com", to: '$DEFAULT_RECIPIENTS'
           }     
     }
