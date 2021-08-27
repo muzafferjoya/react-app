@@ -1,0 +1,25 @@
+pipeline{
+    environment{
+        ENV_NAME = "${env.BRANCH_NAME}"
+    }
+    agent any
+    stages{
+        stage('Build Container'){
+            steps{
+                echo 'Building container...'
+                script{
+                    if(ENVIRONMENT_NAME == 'develop'){
+                        ENV_NAME = 'Development'
+                    } else if (ENVIRONMENT_NAME == 'staging'){
+                        ENV_NAME = 'Prod'
+                    }
+                }
+                echo 'Building Branch: ' + env.BRANCH_NAME
+                echo 'Build Number: ' + env.BUILD_NUMBER
+                echo 'Building Environment: ' + ENV_NAME
+                
+                echo "Running your service with environment ${ENV_NAME} now"
+            }
+        }
+    }
+}
