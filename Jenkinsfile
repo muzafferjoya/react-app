@@ -13,7 +13,7 @@ pipeline {
   stages {
   stage('Build') {
       steps {
-        echo 'Building...'
+        echo 'Building...!'
 
         echo 'Env vars for cloud pull request...'
         echo "BITBUCKET_SOURCE_BRANCH ${env.BITBUCKET_SOURCE_BRANCH}"
