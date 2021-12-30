@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-source
-=======
-from jenkins
-added
->>>>>>> afeebb2ee243319d9456c8d4ba06167722d888d5
