@@ -35,9 +35,9 @@ pipeline {
         }
       }
     }
-    stage('Deployment on Development') {
+    stage('Deployment') {
       parallel {
-        stage('Staging') {
+        stage('Deployment on Development') {
           when {
             branch 'develop'
           }
