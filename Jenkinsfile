@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Deployment') {
       parallel {
-        stage('Staging') {
+        stage('Develop') {
           when {
             branch 'develop'
           }
@@ -49,7 +49,7 @@ pipeline {
             
           }
         }
-        stage('Production') {
+        stage('Deployment on Staging') {
           when {
             branch 'staging'
           }
