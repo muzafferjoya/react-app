@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
 
-          Edit <code>src/App.js</code> depoyed on docker container
+          Edit <code>src/App.js</code> CI/CD Pipeline using Jenkins and docker
         </p>
         
         <p> Welcome </p>
