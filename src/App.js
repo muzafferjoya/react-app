@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
 
-          Edit <code>src/App.js</code> and save to reload deploy on docker container
+          Edit <code>src/App.js</code> depoyed on docker container
         </p>
         
         <p> Welcome </p>
