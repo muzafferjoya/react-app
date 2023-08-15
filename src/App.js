@@ -8,7 +8,7 @@ function App() {
         
         <p>
 
-          Edit <code>src/App.js</code> React App's New version was successfully Deployed
+          Edit <code>src/App.js</code> React App's New version V1.1 was successfully Deployed
         </p>
         
         <p> Welcome </p>
