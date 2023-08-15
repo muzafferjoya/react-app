@@ -8,7 +8,7 @@ function App() {
         
         <p>
 
-          Edit <code>src/App.js</code> CI/CD Successfully running on docker contaner
+          Edit <code>src/App.js</code> React App's New version was successfully Deployed
         </p>
         
         <p> Welcome </p>
