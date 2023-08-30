@@ -37,31 +37,32 @@ pipeline {
       }
     }
     stage('Deployment') {
-      parallel {
-        stage('Deployment on Development') {
-          when {
-            branch 'develop'
-          }
+      // parallel {
+      //   stage('Deployment on Development') {
+      //     when {
+      //       branch 'develop'
+      //     }
           steps {
+            script {
             withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
               s3Delete(bucket: 'website-develop', path:'**/*')
               s3Upload(bucket: 'website-develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
-            
-          }
-        }
-        stage('Deployment on Staging') {
-          when {
-            branch 'staging'
-          }
-          steps {
-             withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
-              s3Delete(bucket: 'website-staging-develop', path:'**/*')
-              s3Upload(bucket: 'website-staging-develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
-            
           }
         }
+        // stage('Deployment on Staging') {
+        //   when {
+        //     branch 'staging'
+        //   }
+        //   steps {
+        //      withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
+        //       s3Delete(bucket: 'website-staging-develop', path:'**/*')
+        //       s3Upload(bucket: 'website-staging-develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
+        //     }
+            
+        //   }
+        // }
       }
     }
   }
