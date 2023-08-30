@@ -45,8 +45,8 @@ pipeline {
           steps {
             script {
             withAWS(region:'us-east-1',credentials:'muzaffar-aws-id') {
-              s3Delete(bucket: 'website-develop', path:'**/*')
-              s3Upload(bucket: 'website-develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
+              s3Delete(bucket: 'website-develop-jenkins', path:'**/*')
+              s3Upload(bucket: 'website-develop-jenkins', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
             }
           }
