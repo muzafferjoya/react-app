@@ -44,7 +44,7 @@ pipeline {
       //     }
           steps {
             script {
-            withAWS(region:'ap-south-1',credentials:'muzaffar-aws-id') {
+            withAWS(region:'us-east-1',credentials:'muzaffar-aws-id') {
               s3Delete(bucket: 'website-develop', path:'**/*')
               s3Upload(bucket: 'website-develop', workingDir:'build', includePathPattern:'**/*', excludePathPattern:'.git/*, **/node_modules/**');
             }
