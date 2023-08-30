@@ -14,7 +14,7 @@ pipeline {
   stages{
       stage('Checkout'){
           steps{
-              git 'https://github.com/muzafferjoya/my-app.git'
+              checkout scm
           }
       }
       stage('Install Packages') {
