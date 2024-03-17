@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight web server to serve the static files
-FROM nginx:alpine
+FROM nginx:1.25.4-alpine3.18
 
 # Copy the built React application from the previous build stage
 COPY --from=build /app/build /usr/share/nginx/html
